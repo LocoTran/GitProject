@@ -1,0 +1,278 @@
+/* GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  font-family: "Hind", sans-serif;
+}
+
+/* HEADER */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  /* thẻ có thuộc tính position ko cần biết absolute hay relative thì cái nào sinh ra sau sẽ có z-index lớn hơn*/
+  width: 100%;
+  margin-top: 20px;
+}
+#portNavbar .nav-link::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background-color: #35a22c;
+  display: block;
+  border-radius: 2px;
+  color: white;
+  transition: all 0.5s;
+}
+#portNavbar .nav-link:hover::after {
+  width: 100%;
+}
+#portNavbar .nav-link {
+  color: white;
+  transition: all 0.5s;
+  margin-left: 20px;
+}
+#portNavbar .nav-link:hover {
+  color: #35a22c;
+}
+
+#portNavbar .active .nav-link {
+  color: #35a22c;
+}
+#portNavbar .active .nav-link::after {
+  width: 100%;
+}
+
+.portLogo i {
+  color: #35a22c;
+  font-size: 3rem;
+}
+.portLogo span {
+  font-size: 2rem;
+  margin-left: 7px;
+}
+
+/* CAROUSEL */
+
+/* b1 chỉnh avt
+b2 chỉnh chiều cao ảnh nền
+b3 chỉnh caption vào giữa
+b4 thay đổi hình dạng indicator */
+
+.portAvt {
+  width: 140px;
+  border-radius: 70px;
+}
+
+/* 
+vh: (viewport height) thường dùng cho chiều cao carousel -> sẽ lấy kích thước trình duyệt
+vw: (viewport width) thường dùng cho font size, vùng nội dung chữ quan trọng mà ko muốn thay đổi nội dung 
+%: giá trị tương đối thẻ con với thẻ cha, so với kích thước thẻ cha 
+*/
+
+#portCarouselID .carousel-item {
+  height: 100vh;
+  /* 100vh: luôn có % bằng với khung trình duyệt ko xét cha con  */
+}
+#portCarouselID .carousel-item > img {
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(60%);
+}
+#portCarouselID .carousel-caption {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+#portCarouselID .carousel-caption h5 {
+  font-size: 55px;
+}
+#portCarouselID .carousel-caption p {
+  font-size: 20px;
+}
+
+#portCarouselID .carousel-indicators li {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+#portCarouselID .carousel-indicators .active {
+  background-color: #35a22c;
+}
+#portCarouselID .carousel-indicators {
+  bottom: 10%;
+}
+
+/* PROJECT */
+.project-content .nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: white;
+  background-color: #35a22c;
+  border: none;
+}
+.project-content .nav-pills .nav-link {
+  border: 1px solid black;
+  color: black;
+}
+.project .title p {
+  width: 80%;
+  margin: 30px auto;
+}
+.project-item {
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.13);
+  overflow: hidden;
+}
+.project-item h5 {
+  transition: all 0.5s;
+}
+.project-item:hover h5 {
+  color: #35a22c;
+}
+/* .project-item .card-body{
+  transition: all .5s ;
+} */
+.project-item:hover .card-body {
+  border: 1px solid #35a22c;
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+}
+
+/* Skill */
+.skill {
+  height: 100vh;
+  position: relative;
+}
+.skill_bg {
+  background-image: url(../img/3.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.skill_overplay {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.skill_title {
+  color: white;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.skill_title h2 {
+  font-weight: bold;
+}
+.skill_content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.skill_content .card i {
+  color: #35a22c;
+  font-size: 40px;
+}
+.skill_content .card {
+  height: 40vh;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  color: white;
+  transition: all 0.5s;
+}
+.skill_content .card h3 {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.skill_content .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-evenly;
+  backdrop-filter: blur(4px);
+}
+.skill_content .card:hover {
+  background-color: rgba(0, 0, 0, 1);
+  border: 1px solid white;
+  border-radius: 15px;
+}
+
+/* Award */
+.award {
+  padding: 80px 0;
+  position: relative;
+}
+
+.award-overplay {
+  background-image: url(../img/memphis_3.png);
+  /* đặt vị trí ưu tiên tấm hinh dựa trên mục đích sử dụng */
+  background-position: bottom left;
+  /* cắt 1 nửa tấm hình để dùng riêng bên trái, top và bottom ko xét */
+  background-size: 50% auto;
+  /* lặp lại 2 lần nên tắt  */
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+.award-left {
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  padding: 40px;
+  /* backdrop-filter tạo độ mờ cho các phần phía dưới như gương */
+  backdrop-filter: blur(4px);
+}
+
+/* FOOTER */
+footer {
+  background-color: #222;
+}
+footer .footer_top{
+  width: 70%;
+  border-bottom: 1px solid #aaa;
+  margin: auto;
+}
+footer .footer_top a{
+  display: inline-block;
+  text-decoration: none;
+}
+footer .footer_top i{
+  color: #aaa;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  border: 1px solid #aaa;
+  transition: all 0.5s;
+}
+footer .footer_bottom{
+  width: 70%;
+  color: #aaa;
+  margin: auto;
+}
+footer .footer_top i:hover{
+  color: #35a22c;
+  border-color: #35a22c;
+}
